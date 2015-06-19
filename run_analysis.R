@@ -30,7 +30,8 @@ Labels<- rbind(TestLabels,TrainLabels)
 # make logical vector of whether feature names contain "mean" or "std"
 meanorstd<-grepl("mean|std",Features[,2])
 
-# extract only the rows, and add subject and activity labels
+# extract only the columns for means or standard deviations,
+# and add subject and activity labels
 subdata<-cbind(Subjects,Labels,mydata[,meanorstd])
 names(subdata)<-c("subject","activity",Features[meanorstd,2])
 # convert to subject and activity to factors
@@ -45,4 +46,5 @@ means<-aggregate(subdata[,-(1:2)],by=list(subdata$subject,subdata$activity),mean
 # rename first to columns back to subject and activity
 names(means)[1]<-"subject"
 names(means)[2]<-"activity"
+# write data to "tablemeans.txt"
 write.table(means,file="./tablemeans.txt",row.names=F)
