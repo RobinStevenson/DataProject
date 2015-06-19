@@ -36,12 +36,10 @@ The features in this dataset are
 * fBodyGyroMag
 * fBodyGyroJerkMag
 
-The following have been calculated for each feature
+The means of the following have been calculated for each feature
 * mean(): the mean value of the feature
 * std(): the standard deviation of the feature
 
-Each of these calculated data is then grouped by activity and subject, 
-and then the mean for each group is calculated (yes, we are calculating
-the mean of a mean, and the mean of a standard deviation).
+(yes, we are calculating the mean of a mean, and the mean of a standard deviation).
 
 
